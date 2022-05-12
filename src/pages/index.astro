@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Slides from "../components/slideshow/Slides.svelte";
+---
+
+<BaseLayout>
+  <main>
+    <Slides client:visible />
+    <section>
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2F04a4c9f3-6560-47fd-bb1a-ff52b97c73a0_1.c139bc082ee544e784cd97ae05c79dc3.jpeg"
+        alt="a picture of the studio"
+      />
+      <div>
+        <h3>LOCATION</h3>
+        <h4>CAR</h4>
+        <p>
+          The studio is accessible via the A10 (Cineworld/ Morrissons turnoff)
+          or the A1055. There is ample space to load/unload equipment at the
+          front of the property. On street parking is available on Kingsway, the
+          street adjacent to the studio.
+        </p>
+        <h4>BUS</h4>
+        <p>
+          The 121, 191, 307 or 313 all stop at Enfield Bus Garage which is a 2
+          minute walk to the studio.
+        </p>
+        <h4>TRAIN</h4>
+        <p>
+          Southbury (Overground) - 5 min walk. Regular trains between Cheshunt &
+          London Liverpool Street.
+        </p><p>
+          Ponders End (National Rail) - 15 mins walk. Regular trains between
+          Hertford & London Liverpool Street/ Stratford
+        </p>
+      </div>
+    </section>
+    <section>
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2F04a4c9f3-6560-47fd-bb1a-ff52b97c73a0_1.c139bc082ee544e784cd97ae05c79dc3.jpeg"
+        alt="a picture of the studio"
+      />
+      <div>
+        <h3>WOW IT'S A T SHIRT</h3>
+        <p>100% Cotton. Machine Washable</p>
+        <p>£25</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main :first-child h3 {
+    margin-top: 100%;
+  }
+
+  section img {
+    margin-right: auto;
+  }
+  div {
+    width: 30%;
+  }
+  section {
+    margin-bottom: 8rem;
+  }
+  section div h3 {
+    margin-top: 0;
+  }
+  @media only screen and (max-width: 720px) {
+    section img {
+      width: 100%;
+    }
+    div {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import LeftNavigationArrow from "./LeftNavigationArrow.astro";
+import RightNavigationArrow from "./RightNavigationArrow.astro";
+const { leftArrow, rightArrow } = Astro.props;
+---
+
+<div class="row">
+  <LeftNavigationArrow text={leftArrow.text} link={leftArrow.link} />
+  <RightNavigationArrow text={rightArrow.text} link={rightArrow.link} />
+</div>
+
+<style>
+
+  .row {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+</style>

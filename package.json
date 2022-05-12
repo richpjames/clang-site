@@ -1,0 +1,24 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "ci": "start-server-and-test dev http://localhost:3000 'npx percy exec -- node snapshots.js'"
+  },
+  "devDependencies": {
+    "@astrojs/renderer-svelte": "^0.3.0",
+    "@percy/script": "^1.1.0",
+    "astro": "^1.0.0-beta.27",
+    "case": "^1.6.3",
+    "prettier-plugin-astro": "^0.0.11",
+    "start-server-and-test": "^1.14.0"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^0.1.2"
+  }
+}

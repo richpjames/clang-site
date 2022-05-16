@@ -20,6 +20,9 @@
     </div>
 </div>
 <style>
+    div {
+        margin-bottom: 2rem;
+    }
     .row{
         height: 10rem;
         display: flex;

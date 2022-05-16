@@ -497,7 +497,7 @@ custom changes
 section {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
 }
 ul {
@@ -509,6 +509,7 @@ address {
 @media only screen and (max-width: 720px) {
   section {
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 a {

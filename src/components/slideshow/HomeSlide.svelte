@@ -4,27 +4,27 @@
 
 <ImageSlide>
   
-  <div slot="text-column">
-  <div class="banner-text" >
-    <span>
-      <h2>M A K E</h2>
-    </span>
-    <span>
-      <h2>S O M E</h2>
-    </span>
-    <span>
-      <h2>N O I S E</h2>
-    </span>
+  <div slot="text-column" class="text-column">
+    <div class="banner-text" >
+      <span>
+        <h2>M A K E</h2>
+      </span>
+      <span>
+        <h2>S O M E</h2>
+      </span>
+      <span>
+        <h2>N O I S E</h2>
+      </span>
+    </div>
+    <div class="blurb" >
+      <h3>WELCOME</h3>
+      <p>
+        We are a home for musicians to rehearse, record and hire equipment. Take a
+        look around our website and see what we do.
+      </p>
+      <p>Proudly based in Ponders End Enfield.</p>
+    </div>
   </div>
-  <div class="blurb" >
-    <h3>WELCOME</h3>
-    <p>
-      We are a home for musicians to rehearse, record and hire equipment. Take a
-      look around our website and see what we do.
-    </p>
-    <p>Proudly based in Ponders End Enfield.</p>
-  </div>
-</div>
   <img
     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2F04a4c9f3-6560-47fd-bb1a-ff52b97c73a0_1.c139bc082ee544e784cd97ae05c79dc3.jpeg"
     alt="the studio"
@@ -71,7 +71,7 @@
   }
   .grid-image {
     grid-area: image;
-    margin-left: auto;
+    margin-left: var(--page-margin);
   }
   section .blurb h3 {
     margin-top: 0;

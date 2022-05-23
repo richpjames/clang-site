@@ -1,5 +1,17 @@
 <script>
   import ImageSlide from "./ImageSlide.svelte";
+  import showdown from "showdown";
+
+  let html;
+  const converter = new showdown.Converter()
+  const getData = fetch('https://clang-server.herokuapp.com/api/welcome-slide/')
+  .then((res) => {
+    if(res.ok){
+     return res.json()
+  }
+  })
+  .then((resJson) =>  resJson.data.attributes?.text)
+  .then((md) => {html = converter.makeHtml(md)})
 </script>
 
 <ImageSlide>
@@ -16,14 +28,11 @@
         <h2>N O I S E</h2>
       </span>
     </div>
+    {#await getData then}
     <div class="blurb" >
-      <h3>WELCOME</h3>
-      <p>
-        We are a home for musicians to rehearse, record and hire equipment. Take a
-        look around our website and see what we do.
-      </p>
-      <p>Proudly based in Ponders End Enfield.</p>
+      {@html html}
     </div>
+    {/await}
   </div>
   <img
     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2F04a4c9f3-6560-47fd-bb1a-ff52b97c73a0_1.c139bc082ee544e784cd97ae05c79dc3.jpeg"
@@ -45,9 +54,6 @@
     width: 100%;
     margin-bottom: 0;
     margin-top: 0;
-  }
-  span {
-    width: 100%;
   }
   h2:after {
     content: "";
@@ -73,7 +79,7 @@
     grid-area: image;
     margin-left: var(--page-margin);
   }
-  section .blurb h3 {
+  :global(section .blurb h3) {
     margin-top: 0;
   }
   @media only screen and (max-width: 720px) {
@@ -85,7 +91,7 @@
         "blurb";
       grid-template-columns: 100%;
     }
-    section .blurb h3 {
+    :global(section .blurb h3) {
       margin-top: calc(var(--line-height) * 1.5rem);
     }
   }

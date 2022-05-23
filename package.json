@@ -19,6 +19,7 @@
     "start-server-and-test": "^1.14.0"
   },
   "dependencies": {
-    "@astrojs/svelte": "^0.1.2"
+    "@astrojs/svelte": "^0.1.2",
+    "showdown": "^2.1.0"
   }
 }

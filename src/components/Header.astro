@@ -1,27 +1,17 @@
 ---
 import Navigation from "./Navigation.astro";
+import Logo from "./Logo.astro";
 ---
 
 <header>
-  <h1><a href="/">Clang</a></h1>
+  <a href="/"><Logo /></a>
   <Navigation />
 </header>
 
 <style>
   @media only screen and (max-width: 720px) {
-    h1 {
-      width: 50%;
-      word-break: keep-all;
-      padding: 0;
-    }
-
     header {
       margin-top: 0.5rem;
-      padding-top: 0;
-    }
-
-    a {
-      margin-top: 0;
       padding-top: 0;
     }
   }

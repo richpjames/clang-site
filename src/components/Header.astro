@@ -4,11 +4,16 @@ import Logo from "./Logo.astro";
 ---
 
 <header>
-  <a href="/"><Logo /></a>
+  <a href="/" class="logo"><Logo /></a>
   <Navigation />
 </header>
 
 <style>
+  .logo {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
   @media only screen and (max-width: 720px) {
     header {
       margin-top: 0.5rem;

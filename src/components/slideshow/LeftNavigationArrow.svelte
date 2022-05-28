@@ -5,39 +5,33 @@
 </script>
 
   <div class="arrow-wrapper"  on:click={onClick}>
-    <div class="icon">
-      <div class="arrow"></div>
-    </div>
+
     <span>{index}/{length}</span>
+    <svg
+    width="ƒ"
+    height="150"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    fill="#fff"
+    viewBox="0 0 24 15"
+    xmlns="http://www.w3.org/2000/svg"> 
+      <path
+         d="M 2.117,8 9.644,14.235 9,15 0,7.479 9,0 9.645,0.764 2.116,7 H 24 v 1 z"
+         id="path188" />
+    </svg>
+    
   </div>
 
 <style>
-  .arrow-wrapper{
-    width: 138px;
-    margin-left: 7px;
+  .arrow-wrapper {
+   margin-right: auto;
+   position: relative;
   }
 
-  .arrow-wrapper span{
-    margin-left: auto;
-  }
-
-  .arrow::after,
-  .arrow::before {
-    content: "";
+  span {
     position: absolute;
-    width: 62px;
-    height: 10px;
-    left: -13px;
-    background-color: var(--text);
+    right: 0;
+    bottom: 0;
   }
 
-  .arrow::after {
-    bottom: -18.5px;
-    transform: rotate(45deg);
-  }
-
-  .arrow::before {
-    bottom: 18.5px;
-    transform: rotate(-45deg);
-  }
 </style>

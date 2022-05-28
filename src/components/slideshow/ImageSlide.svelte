@@ -1,26 +1,24 @@
 
-<section class="container">
+<section class="slide-container">
   <div class="text-column">
     <slot name="text-column"/>
   </div>
-  <div class="image">
-    <slot name="image" class="image"/>
-  </div>  
+    <slot name="image" class="slide-image"/>
 </section>
 
 <style>
-  .container {
+  .slide-container {
     display: flex;
+    flex-direction: row;
   }
-  .container .image {
-    margin-left:auto;
-    width: 70%;
+  .slide-container .slide-image {
+    flex:2;
   }
   .text-column {
-    width: 30%;
+    flex: 1;
   }
 
-.container :global(.slide-title) {
+.slide-container :global(.slide-title) {
   font-size: calc(
     var(--base-fontsize) * var(--header-scale) * var(--header-scale) *
       var(--header-scale) * var(--header-scale) * var(--header-scale) *
@@ -32,19 +30,15 @@
   margin-top: 0;
 }
 
-.container :global(.slide-blurb) {
+.slide-container :global(.slide-blurb) {
   margin-top: auto;
   grid-area: blurb;
   height: auto;
 }
 
-@media only screen and (max-width: 720px) {
-  .container .image {
-    width: 100%;
+@media only screen and (max-width: 1200px) {
+  .slide-container  {
+    flex-direction: column;
   }
-  .text-column {
-    width: 100%;
   }
-
-}
 </style>

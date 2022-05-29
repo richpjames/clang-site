@@ -1,19 +1,44 @@
 ---
-import Navigation from "./Navigation.astro";
+import Case from "case";
 import Logo from "./Logo.astro";
+
+export const navItems = [
+  "rehearsal-space",
+  "recording-studio",
+  "equipment-hire",
+  "events",
+];
 ---
 
 <header>
   <a href="/" class="logo"><Logo /></a>
-  <Navigation />
+
+  <nav>
+    {navItems.map((item) => (
+      <a>
+        <h3 href={item}>{Case.upper(item)}</h3>
+      </a>
+    ))}
+  </nav>
 </header>
 
 <style>
+  header {
+    display: flex;
+    width: 100vw;
+  }
+
   .logo {
     margin: 0;
     padding: 0;
     line-height: 0;
+    flex: 1;
   }
+
+  nav {
+    flex: 2;
+  }
+
   @media only screen and (max-width: 720px) {
     header {
       margin-top: 0.5rem;

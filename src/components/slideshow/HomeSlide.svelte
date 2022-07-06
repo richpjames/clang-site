@@ -10,7 +10,7 @@ import { fetchCopy } from "../../helpers";
 <ImageSlide>
   
   <div slot="text-column" class="text-column">
-    <div class="banner-text" >
+    <div class="banner-text">
       <span>
         <h2>M A K E</h2>
       </span>
@@ -55,19 +55,10 @@ import { fetchCopy } from "../../helpers";
     display: inline-block;
     width: 100%;
   }
-  .banner-text {
-    grid-area: banner;
-  }
-  :global(.logo-row) {
-    display: grid;
-    grid-template-areas:
-      "banner image"
-      "blurb image";
-    grid-template-columns: 30% 70%;
-  }
+
+  
   .blurb {
     margin-top: auto;
-    grid-area: blurb;
     height: auto;
   }
   .grid-image {
@@ -77,14 +68,7 @@ import { fetchCopy } from "../../helpers";
     margin-top: 0;
   }
   @media only screen and (max-width: 720px) {
-    :global(.logo-row) {
-      display: grid;
-      grid-template-areas:
-        "banner"
-        "image"
-        "blurb";
-      grid-template-columns: 100%;
-    }
+
     :global(section .blurb h3) {
       margin-top: calc(var(--line-height) * 1.5rem);
     }

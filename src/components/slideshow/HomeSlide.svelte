@@ -76,7 +76,6 @@
     height: auto;
   }
   .grid-image {
-    grid-area: image;
     margin-left: var(--page-margin);
   }
   :global(section .blurb h3) {

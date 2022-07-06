@@ -2,14 +2,17 @@
   export let index: number;
   export let length: number;
   export let onClick: () => void;
+  export let size: number;
+  const height = size * 0.625
+  const width = size;
 </script>
 
   <div class="arrow-wrapper"  on:click={onClick}>
 
     <span>{index}/{length}</span>
     <svg
-    width="ƒ"
-    height="150"
+    width={width}
+    height={height}
     fill-rule="evenodd"
     clip-rule="evenodd"
     fill="#fff"

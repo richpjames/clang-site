@@ -6,6 +6,7 @@
 
     let currentIndex = 0;
 
+    const arrowSize = 150;
 
     const slides = [ HomeSlide, RehearsalSpaceSlide ]
 </script>
@@ -14,17 +15,15 @@
     <svelte:component this={slides[currentIndex]} />
     <div class="row">        
         {#if currentIndex >= 1}
-            <LeftNavigationArrow length={slides.length} index={currentIndex} onClick={() => currentIndex -= 1} />
+            <LeftNavigationArrow length={slides.length} index={currentIndex} onClick={() => currentIndex -= 1} size={arrowSize} />
         {/if}
-        <RightNavigationArrow length={slides.length} index={currentIndex + 1 } onClick={() => currentIndex < slides.length - 1 ? currentIndex++ : currentIndex}/>
+        <RightNavigationArrow length={slides.length} index={currentIndex + 1 } onClick={() => currentIndex < slides.length - 1 ? currentIndex++ : currentIndex} size={arrowSize} />
     </div>
 </div>
 <style>
-    div {
-        margin-bottom: 2rem;
-    }
-    .row{
-        height: 10rem;
+    .row {
+        height: 8rem;
+        margin-bottom: 1.8rem;
         display: flex;
         position: relative;
     }

@@ -1,6 +1,5 @@
 <script>
-import { fetchCopy } from "../../helpers";
-
+  import { fetchCopy } from "../../helpers";
   import ImageSlide from "./ImageSlide.svelte";
 
   const blurbCopyPromise = fetchCopy('welcome-slide')
@@ -63,6 +62,7 @@ import { fetchCopy } from "../../helpers";
   }
   .grid-image {
     margin-left: var(--page-margin);
+    width: 60%;
   }
   :global(section .blurb h3) {
     margin-top: 0;

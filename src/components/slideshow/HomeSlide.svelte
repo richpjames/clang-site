@@ -1,17 +1,10 @@
 <script>
-  import ImageSlide from "./ImageSlide.svelte";
-  import showdown from "showdown";
+import { fetchCopy } from "../../helpers";
 
-  let html;
-  const converter = new showdown.Converter()
-  const getData = fetch('https://clang-server.herokuapp.com/api/welcome-slide/')
-  .then((res) => {
-    if(res.ok){
-     return res.json()
-  }
-  })
-  .then((resJson) =>  resJson.data.attributes?.text)
-  .then((md) => {html = converter.makeHtml(md)})
+  import ImageSlide from "./ImageSlide.svelte";
+
+  const blurbCopyPromise = fetchCopy('welcome-slide')
+
 </script>
 
 <ImageSlide>
@@ -28,9 +21,11 @@
         <h2>N O I S E</h2>
       </span>
     </div>
-    {#await getData then}
+    {#await blurbCopyPromise}
+    <p>loading</p>
+    {:then blurbCopy}
     <div class="blurb" >
-      {@html html}
+      {@html blurbCopy}
     </div>
     {/await}
   </div>

@@ -15,8 +15,8 @@ export const navItems = [
 
   <nav>
     {navItems.map((item) => (
-      <a>
-        <h3 href={item}>{Case.upper(item)}</h3>
+      <a href={item}>
+        <h3>{Case.upper(item)}</h3>
       </a>
     ))}
   </nav>

@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@astrojs/renderer-svelte": "^0.5.2",
-    "@sanity/client": "^3.3.2"
+    "@portabletext/to-html": "^1.0.3",
+    "@sanity/client": "^3.3.2",
+    "@sanity/image-url": "^1.0.1"
   }
 }

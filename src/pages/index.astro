@@ -1,21 +1,20 @@
 ---
+import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Slides from "../components/slideshow/Slides.svelte";
+import { client } from "../client.ts";
+
+const response = await client.fetch(
+  '*[_type == "slide" && title == "Map slide"]'
+);
+const map = await response[0].body[0].children[0].text;
 ---
 
 <BaseLayout>
   <main>
     <Slides client:visible />
     <section>
-      <iframe
-        width="874"
-        height="874"
-        frameborder="0"
-        style="border:0"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
-      >
-      </iframe>
+      <Fragment set:html={map} />
       <div>
         <h3>LOCATION</h3>
         <h4>CAR</h4>

@@ -4,39 +4,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Slides from "../components/slideshow/Slides.svelte";
 import { client } from "../client.ts";
 
-const response = await client.fetch(
-  '*[_type == "slide" && title == "Map slide"]'
-);
-const map = await response[0].body[0].children[0].text;
+const mapResponse = await client.fetch('*[_type == "map"]');
+const mapUrl = await mapResponse[0].url;
+
+const directionsResponse = await client.fetch('*[title == "Map slide"]');
+const directionsHtml = toHTML(directionsResponse[0].body);
+
+const shirtResponse = await client.fetch('*[title == "shirt slide"]');
+console.log(shirtResponse);
 ---
 
 <BaseLayout>
   <main>
     <Slides client:visible />
     <section>
-      <Fragment set:html={map} />
+      <iframe
+        width="874"
+        height="874"
+        frameborder="0"
+        style="border:0;margin-right: var(--page-margin);"
+        referrerpolicy="no-referrer-when-downgrade"
+        src={mapUrl}
+        allowfullscreen
+      >
+      </iframe>
       <div>
-        <h3>LOCATION</h3>
-        <h4>CAR</h4>
-        <p>
-          The studio is accessible via the A10 (Cineworld/ Morrissons turnoff)
-          or the A1055. There is ample space to load/unload equipment at the
-          front of the property. On street parking is available on Kingsway, the
-          street adjacent to the studio.
-        </p>
-        <h4>BUS</h4>
-        <p>
-          The 121, 191, 307 or 313 all stop at Enfield Bus Garage which is a 2
-          minute walk to the studio.
-        </p>
-        <h4>TRAIN</h4>
-        <p>
-          Southbury (Overground) - 5 min walk. Regular trains between Cheshunt &
-          London Liverpool Street.
-        </p><p>
-          Ponders End (National Rail) - 15 mins walk. Regular trains between
-          Hertford & London Liverpool Street/ Stratford
-        </p>
+        <Fragment set:html={directionsHtml} />
       </div>
     </section>
     <section>

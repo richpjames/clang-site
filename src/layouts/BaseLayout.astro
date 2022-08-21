@@ -14,8 +14,17 @@ import "../styles/global.css";
   </head>
 
   <body>
-    <Header />
-    <slot />
-    <Footer />
+    <main>
+      <Header />
+      <slot />
+      <Footer />
+    </main>
   </body>
 </html>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

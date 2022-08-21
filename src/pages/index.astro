@@ -16,38 +16,31 @@ const shirtDescription = toHTML(shirtResponse[0].body);
 ---
 
 <BaseLayout>
-  <main>
-    <Slides client:visible />
-    <section>
-      <iframe
-        width="874"
-        height="874"
-        frameborder="0"
-        style="border:0;margin-right: var(--page-margin);"
-        referrerpolicy="no-referrer-when-downgrade"
-        src={mapUrl}
-        allowfullscreen
-      >
-      </iframe>
-      <div>
-        <Fragment set:html={directionsHtml} />
-      </div>
-    </section>
-    <section>
-      <img src={imageUrl} alt="a picture of the shirt" />
-      <div>
-        <Fragment set:html={shirtDescription} />
-      </div>
-    </section>
-  </main>
+  <Slides client:visible />
+  <section>
+    <iframe
+      width="874"
+      height="874"
+      frameborder="0"
+      style="border:0;margin-right: var(--page-margin);"
+      referrerpolicy="no-referrer-when-downgrade"
+      src={mapUrl}
+      allowfullscreen
+    >
+    </iframe>
+    <div>
+      <Fragment set:html={directionsHtml} />
+    </div>
+  </section>
+  <section>
+    <img src={imageUrl} alt="a picture of the shirt" />
+    <div>
+      <Fragment set:html={shirtDescription} />
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-  }
-
   main :first-child h3 {
     margin-top: 100%;
   }

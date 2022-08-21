@@ -2,7 +2,7 @@
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Slides from "../components/slideshow/Slides.svelte";
-import { client } from "../client.ts";
+import { client, urlForImage } from "../client.ts";
 
 const mapResponse = await client.fetch('*[_type == "map"]');
 const mapUrl = await mapResponse[0].url;
@@ -11,7 +11,8 @@ const directionsResponse = await client.fetch('*[title == "Map slide"]');
 const directionsHtml = toHTML(directionsResponse[0].body);
 
 const shirtResponse = await client.fetch('*[title == "shirt slide"]');
-console.log(shirtResponse);
+const imageUrl = urlForImage(shirtResponse[0].image);
+const shirtDescription = toHTML(shirtResponse[0].body);
 ---
 
 <BaseLayout>
@@ -33,14 +34,9 @@ console.log(shirtResponse);
       </div>
     </section>
     <section>
-      <img
-        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi5.walmartimages.com%2Fasr%2F04a4c9f3-6560-47fd-bb1a-ff52b97c73a0_1.c139bc082ee544e784cd97ae05c79dc3.jpeg"
-        alt="a picture of the studio"
-      />
+      <img src={imageUrl} alt="a picture of the shirt" />
       <div>
-        <h3>WOW IT'S A T SHIRT</h3>
-        <p>100% Cotton. Machine Washable</p>
-        <p>£25</p>
+        <Fragment set:html={shirtDescription} />
       </div>
     </section>
   </main>

@@ -35,7 +35,13 @@ const socialLinks = [
   </form>
 
   <nav>
-    {navItems.map((item) => <a href={item}>{Case.upper(item)}</a>)}
+    <ul>
+      {navItems.map((item) => (
+        <li>
+          <a href={item}>{Case.upper(item)}</a>
+        </li>
+      ))}
+    </ul>
   </nav>
   <div>
     <address>
@@ -56,7 +62,6 @@ const socialLinks = [
     font-size: calc(var(--base-fontsize) * var(--header-scale));
   }
   ul {
-    width: 15%;
     margin-top: 0;
     text-align: left;
     padding-left: 0;
@@ -78,7 +83,10 @@ const socialLinks = [
     padding: 0;
     line-height: normal;
     text-align-last: justify;
-    font-size: unset;
+  }
+
+  nav ul {
+    font-size: calc(var(--base-fontsize) * var(--header-scale));
   }
   nav a {
     margin-top: 0;

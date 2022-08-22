@@ -17,7 +17,7 @@ const shirtDescription = toHTML(shirtResponse[0].body);
 
 <BaseLayout>
   <Slides client:visible />
-  <section>
+  <section class="slide">
     <iframe
       width="874"
       height="874"
@@ -32,7 +32,7 @@ const shirtDescription = toHTML(shirtResponse[0].body);
       <Fragment set:html={directionsHtml} />
     </div>
   </section>
-  <section>
+  <section class="slide">
     <img src={imageUrl} alt="a picture of the shirt" />
     <div>
       <Fragment set:html={shirtDescription} />

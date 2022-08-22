@@ -527,3 +527,33 @@ address {
 a {
   text-decoration: none;
 }
+
+.slide :first-child h3 {
+  margin-top: 100%;
+}
+
+.slide img {
+  margin-right: auto;
+  width: 45%;
+}
+
+.slide div {
+  width: 40%;
+  margin-right: auto;
+}
+
+.slide {
+  margin-bottom: 8rem;
+}
+
+.slide div h3 {
+  margin-top: 0;
+}
+@media only screen and (max-width: 720px) {
+  .slide img {
+    width: 100%;
+  }
+  .slide div {
+    width: 100%;
+  }
+}

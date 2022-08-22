@@ -1,5 +1,35 @@
 ---
+import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { client, urlForImage } from "../client.ts";
+
+const mainSlide = await client.fetch('*[title == "Rehearsal space slide"]');
+const imageUrl = urlForImage(mainSlide[0].image);
+const copy = toHTML(mainSlide[0].body);
+
+const equipmentSlide = await client.fetch(
+  '*[title == "Rehearsal space equipment slide"]'
+);
+const equipmentList = toHTML(equipmentSlide[0].body);
 ---
 
-<BaseLayout>hero row<br /> slider <br />equipment list</BaseLayout>
+<BaseLayout>
+  <section class="slide">
+    <img src={imageUrl} alt="image of rehearsal space" />
+    <div>
+      <Fragment set:html={copy} />
+    </div>
+  </section>
+  <section class="equipment-list">
+    <Fragment set:html={equipmentList} />
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .equipment-list {
+    display: flex;
+  }
+  .equipment-list ul {
+    padding-left: 0;
+  }
+</style>

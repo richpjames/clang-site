@@ -11,7 +11,6 @@
     imageUrl = urlForImage(result[0].image)
   })
 
-
 </script>
 
 <ImageSlide>

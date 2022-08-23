@@ -1,7 +1,7 @@
 ---
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Slides from "../components/slideshow/Slides.svelte";
+import Slides from "../components/slideshow/HomePageSlides.svelte";
 import { client, urlForImage } from "../client.ts";
 
 const mapResponse = await client.fetch('*[_type == "map"]');

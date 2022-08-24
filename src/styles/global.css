@@ -528,10 +528,6 @@ a {
   text-decoration: none;
 }
 
-.slide :first-child h3 {
-  margin-top: 100%;
-}
-
 .slide img {
   margin-right: auto;
   width: 45%;

@@ -1,8 +1,8 @@
 ---
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-import { client, urlForImage } from "../client.ts";
+import EquipmentList from "../components/EquipmentList.astro";
+import { client } from "../client.ts";
 
 const mainSlide = await client.fetch('*[title == "Equipment hire slide"]');
 const copy = toHTML(mainSlide[0].body);
@@ -13,5 +13,46 @@ const copy = toHTML(mainSlide[0].body);
     <div>
       <Fragment set:html={copy} />
     </div>
+    <div class="form-container">
+      <form
+        name="equipment-hire"
+        data-netlify="true"
+        method="POST"
+        action="/successful-hire-request"
+      >
+        <label for="email">EMAIL</label>
+        <input type="email" name="email" />
+        <label for="name">NAME</label>
+        <input type="text" name="name" />
+        <label for="name">EVENT NAME</label>
+        <input type="text" name="event-name" />
+        <label for="name">EVENT DETAILS</label>
+        <input type="text" name="event-details" />
+        <label for="name">EVENT DETAILS</label>
+        <textarea name="event-details"></textarea>
+
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
   </section>
+  <EquipmentList />
 </BaseLayout>
+
+<style>
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: calc(var(--line-height) * 1.5rem * 4);
+    margin-left: calc(var(--line-height) * 1.5rem * 4);
+    margin-right: calc(var(--line-height) * 1.5rem * 4);
+  }
+  form textarea {
+    width: 100%;
+  }
+</style>

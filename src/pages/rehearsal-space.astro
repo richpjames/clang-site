@@ -1,31 +1,12 @@
 ---
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EquipmentList from "../components/EquipmentList.astro";
 import { client, urlForImage } from "../client.ts";
 
 const mainSlide = await client.fetch('*[title == "Rehearsal space slide"]');
 const imageUrl = urlForImage(mainSlide[0].image);
 const copy = toHTML(mainSlide[0].body);
-
-const ampResponse = await client.fetch(
-  '*[_type == "equipment-list" && title == "GUITAR AMPS"]'
-);
-const ampList = ampResponse[0].list;
-
-const micResponse = await client.fetch(
-  '*[_type == "equipment-list" && title == "MICROPHONES"]'
-);
-const micList = micResponse[0].list;
-
-const mixingResponse = await client.fetch(
-  '*[_type == "equipment-list" && title == "MIXING"]'
-);
-const mixingList = mixingResponse[0].list;
-
-const drumResponse = await client.fetch(
-  '*[_type == "equipment-list" && title == "DRUMS"]'
-);
-const drumsList = drumResponse[0].list;
 ---
 
 <BaseLayout>
@@ -35,43 +16,5 @@ const drumsList = drumResponse[0].list;
       <Fragment set:html={copy} />
     </div>
   </section>
-  <section class="equipment-lists">
-    <div class="list">
-      <h3>{ampResponse[0].title}</h3>
-      <ul>
-        {ampList.map((amp: string) => <li>{amp}</li>)}
-      </ul>
-    </div>
-    <div class="list">
-      <h3>{micResponse[0].title}</h3>
-      <ul>
-        {micList.map((mic: string) => <li>{mic}</li>)}
-      </ul>
-    </div>
-    <div class="list">
-      <h3>{mixingResponse[0].title}</h3>
-      <ul>
-        {mixingList.map((mixTool: string) => <li>{mixTool}</li>)}
-      </ul>
-    </div>
-    <div class="list">
-      <h3>{drumResponse[0].title}</h3>
-      <ul>
-        {drumsList.map((drum: string) => <li>{drum}</li>)}
-      </ul>
-    </div>
-  </section>
+  <EquipmentList />
 </BaseLayout>
-
-<style>
-  .equipment-lists {
-    display: flex;
-  }
-
-  .list {
-    width: 25%;
-  }
-  .list ul {
-    padding-left: 0;
-  }
-</style>

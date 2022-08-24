@@ -1,1 +1,22 @@
-<div>hello</div>
+---
+import { toHTML } from "@portabletext/to-html";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { client, urlForImage } from "../client.ts";
+import EquipmentList from "../components/EquipmentList.astro";
+
+const mainSlide = await client.fetch('*[title == "Recording studio slide"]');
+const imageUrl = urlForImage(mainSlide[0].image);
+const copy = toHTML(mainSlide[0].body);
+---
+
+<BaseLayout>
+  <section class="slide">
+    <div>
+      <Fragment set:html={copy} />
+    </div>
+    <img src={imageUrl} alt="image of recording studio" />
+  </section>
+  <EquipmentList />
+</BaseLayout>

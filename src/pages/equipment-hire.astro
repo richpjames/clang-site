@@ -1,0 +1,17 @@
+---
+import { toHTML } from "@portabletext/to-html";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { client, urlForImage } from "../client.ts";
+
+const mainSlide = await client.fetch('*[title == "Equipment hire slide"]');
+const copy = toHTML(mainSlide[0].body);
+---
+
+<BaseLayout>
+  <section class="slide">
+    <div>
+      <Fragment set:html={copy} />
+    </div>
+  </section>
+</BaseLayout>

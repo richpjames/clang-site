@@ -11,7 +11,8 @@
 </script>
 
 <div>
-    {#each slides as slide}
+    {#each slides as slide, index}
+        {#if index === currentIndex}
         <ImageSlide>
             <div slot="text-column" class="text-column">
                 {@html slide.text}
@@ -23,6 +24,7 @@
                 slot="image"
             />
         </ImageSlide>
+        {/if}
     {/each}
 
     <div class="row">        

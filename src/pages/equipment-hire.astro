@@ -2,7 +2,7 @@
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EquipmentList from "../components/EquipmentList.astro";
-import { client } from "../client.ts";
+import { client } from "../client";
 
 const mainSlide = await client.fetch('*[title == "Equipment hire slide"]');
 const copy = toHTML(mainSlide[0].body);

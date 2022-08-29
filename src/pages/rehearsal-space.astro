@@ -2,7 +2,7 @@
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EquipmentList from "../components/EquipmentList.astro";
-import { client, urlForImage } from "../client.ts";
+import { client, urlForImage } from "../client";
 
 const mainSlide = await client.fetch('*[title == "Rehearsal space slide"]');
 const imageUrl = urlForImage(mainSlide[0].image);

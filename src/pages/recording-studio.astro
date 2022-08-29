@@ -3,7 +3,7 @@ import { toHTML } from "@portabletext/to-html";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import { client, urlForImage } from "../client.ts";
+import { client, urlForImage } from "../client";
 import EquipmentList from "../components/EquipmentList.astro";
 
 const mainSlide = await client.fetch('*[title == "Recording studio slide"]');

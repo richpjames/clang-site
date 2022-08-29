@@ -5,7 +5,7 @@ import EquipmentList from "../components/EquipmentList.astro";
 import { client, urlForImage } from "../client";
 
 const mainSlide = await client.fetch('*[title == "Rehearsal space slide"]');
-const imageUrl = urlForImage(mainSlide[0].image);
+const imageUrl = urlForImage(mainSlide[0].image) as unknown as string;
 const copy = toHTML(mainSlide[0].body);
 ---
 

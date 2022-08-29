@@ -11,7 +11,7 @@
 
     const mapSlides = async () => {
       const slides = await fetchSlides()
-      console.log(slides)
+
       return slides.map(slide => ({imageUrl: urlForImage(slide.image), text: toHTML(slide.body)}))
     }
 

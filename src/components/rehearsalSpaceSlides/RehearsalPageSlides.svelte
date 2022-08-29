@@ -3,8 +3,6 @@
     import { client, urlForImage } from "../../client";
     import Slides from "../rehearsalSpaceSlides/Slides.svelte"
 
-
-
     const fetchSlides = async () => {
       return client.fetch('*[_type == "rehearsal-space"]')
     }
@@ -12,7 +10,7 @@
     const mapSlides = async () => {
       const slides = await fetchSlides()
 
-      return slides.map(slide => ({imageUrl: urlForImage(slide.image), text: toHTML(slide.body)}))
+      return slides.map(slide => ({imageUrl: urlForImage(slide.image), text: toHTML(slide.body), order: slide.order})).sort((a, b) => a.order - b.order)
     }
 
     const generateSlides = mapSlides()

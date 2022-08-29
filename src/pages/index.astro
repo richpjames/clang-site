@@ -2,7 +2,7 @@
 import { toHTML } from "@portabletext/to-html";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomePageSlides from "../components/homepage/HomePageSlides.svelte";
-import { client, urlForImage } from "../client";
+import { client } from "../client";
 
 const mapResponse = await client.fetch('*[_type == "map"]');
 const mapUrl = await mapResponse[0].url;

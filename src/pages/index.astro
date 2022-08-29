@@ -9,10 +9,6 @@ const mapUrl = await mapResponse[0].url;
 
 const directionsResponse = await client.fetch('*[title == "Map slide"]');
 const directionsHtml = toHTML(directionsResponse[0].body);
-
-const shirtResponse = await client.fetch('*[title == "shirt slide"]');
-const imageUrl = urlForImage(shirtResponse[0].image);
-const shirtDescription = toHTML(shirtResponse[0].body);
 ---
 
 <BaseLayout>
@@ -30,12 +26,6 @@ const shirtDescription = toHTML(shirtResponse[0].body);
     </iframe>
     <div>
       <Fragment set:html={directionsHtml} />
-    </div>
-  </section>
-  <section class="slide">
-    <img src={imageUrl} alt="a picture of the shirt" />
-    <div>
-      <Fragment set:html={shirtDescription} />
     </div>
   </section>
 </BaseLayout>

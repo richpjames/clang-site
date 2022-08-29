@@ -1,6 +1,6 @@
 <script>
     import Slides from "../slideshow/Slides.svelte";
-    import ImageSlide from "./ImageSlide.svelte";
+    import Slide from "../slideshow/Slide.svelte";
     import HomeSlide from "./HomeSlide.svelte";
 </script>
 

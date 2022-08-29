@@ -1,7 +1,7 @@
 <script>
     import RightNavigationArrow from "../slideshow/RightNavigationArrow.svelte";
     import LeftNavigationArrow from "../slideshow/LeftNavigationArrow.svelte";
-    import ImageSlide from "../homePage/ImageSlide.svelte"
+    import ImageSlide from "../slideshow/Slide.svelte"
     
     let currentIndex = 0;
 

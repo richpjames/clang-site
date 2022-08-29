@@ -1,7 +1,7 @@
 <script>
   import {toHTML} from '@portabletext/to-html'
   import { client, urlForImage } from "../../client";
-  import ImageSlide from "./ImageSlide.svelte";
+  import Slide from "../slideshow/Slide.svelte";
 
   let blurb;
   let imageUrl;
@@ -13,7 +13,7 @@
 
 </script>
 
-<ImageSlide>
+<Slide>
   
   <div slot="text-column" class="text-column">
     <div class="banner-text">
@@ -41,7 +41,7 @@
     slot="image"
   />
  
-</ImageSlide>
+</Slide>
 
 <style>
   h2 {

@@ -1,5 +1,5 @@
 <script>
-import ImageSlide from "./ImageSlide.svelte";
+import ImageSlide from "./Slide.svelte";
 
 </script>
 

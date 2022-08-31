@@ -6,9 +6,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EquipmentList from "../components/EquipmentList.astro";
 import RehearsalSpaceSlides from "../components/rehearsalSpaceSlides/RehearsalPageSlides.svelte";
 
-const mainSlide = await client.fetch('*[title == "Rehearsal space slide"]');
-const imageUrl = urlForImage(mainSlide[0].image) as unknown as string;
-const copy = toHTML(mainSlide[0].body);
+const response = await client.fetch(
+  '*[_type == "page-description" && title == "Rehearsal Space"]'
+);
+console.log(response);
+const imageUrl = urlForImage(response[0].image) as unknown as string;
+const copy = toHTML(response[0].body);
 ---
 
 <BaseLayout>

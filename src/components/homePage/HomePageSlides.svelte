@@ -4,4 +4,4 @@
     import HomeSlide from "./HomeSlide.svelte";
 </script>
 
-<Slides slides={[ HomeSlide, ImageSlide ]}/>
+<Slides slides={[ HomeSlide, Slide ]}/>

@@ -1,24 +1,28 @@
 <script>
-    import {toHTML} from '@portabletext/to-html'
-    import { client, urlForImage } from "../../client";
-    import Slides from "../rehearsalSpaceSlides/Slides.svelte"
+  import { toHTML } from "@portabletext/to-html";
+  import { client, urlForImage } from "../../client";
+  import Slides from "../rehearsalSpaceSlides/Slides.svelte";
 
-    const fetchSlides = async () => {
-      return client.fetch('*[_type == "rehearsal-space"]')
-    }
+  const fetchSlides = async () =>
+    await client.fetch('*[_type == "rehearsal-space"]');
 
-    const mapSlides = async () => {
-      const slides = await fetchSlides()
+  const mapSlides = async () => {
+    const slides = await fetchSlides();
 
-      return slides.map(slide => ({imageUrl: urlForImage(slide.image), text: toHTML(slide.body), order: slide.order})).sort((a, b) => a.order - b.order)
-    }
+    return slides
+      .map((slide) => ({
+        imageUrl: urlForImage(slide.image),
+        text: toHTML(slide.body),
+        order: slide.order,
+      }))
+      .sort((a, b) => a.order - b.order);
+  };
 
-    const generateSlides = mapSlides()
+  const generateSlides = mapSlides();
 </script>
 
 {#await generateSlides}
   <p>loading</p>
-{:then slides} 
-  <Slides {slides}/>
+{:then slides}
+  <Slides {slides} />
 {/await}
-

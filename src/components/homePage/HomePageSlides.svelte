@@ -2,6 +2,7 @@
   import { toHTML } from "@portabletext/to-html";
   import { client, urlForImage } from "../../client";
   import Slides from "../slideshow/Slides.svelte";
+  import HomeSlide from "./HomeSlide.svelte";
 
   const fetchSlides = async () =>
     await client.fetch('*[_type == "slide" && title == "Rehearsal space"]');
@@ -24,5 +25,5 @@
 {#await generateSlides}
   <p>loading</p>
 {:then slides}
-  <Slides {slides} />
+  <Slides slides={[HomeSlide, ...slides]} />
 {/await}

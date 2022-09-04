@@ -25,5 +25,5 @@
 {#await generateSlides}
   <p>loading</p>
 {:then slides}
-  <Slides slides={[HomeSlide, ...slides]} />
+  <Slides slides={[HomeSlide, ...slides]} page="home" />
 {/await}

@@ -1,7 +1,7 @@
 <script>
   import { toHTML } from "@portabletext/to-html";
   import { client, urlForImage } from "../../client";
-  import Slides from "../rehearsalSpaceSlides/Slides.svelte";
+  import Slides from "../slideshow/Slides.svelte";
 
   const fetchSlides = async () =>
     await client.fetch('*[_type == "rehearsal-space"]');

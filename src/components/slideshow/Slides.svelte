@@ -6,13 +6,14 @@
   let currentIndex = 0;
 
   export let slides;
+  export let page;
 </script>
 
 <div>
   {#each slides as slide, index}
-    {#if index === currentIndex && index === 0}
+    {#if index === currentIndex && index === 0 && page === "home"}
       <svelte:component this={slides[currentIndex]} />
-    {:else if index === currentIndex && index > 0 && typeof slide !== "function"}
+    {:else if index === currentIndex}
       <Slide>
         <div slot="text-column" class="text-column">
           {@html slide.text}

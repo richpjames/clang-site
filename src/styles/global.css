@@ -90,45 +90,6 @@ nav {
   display: flex;
   align-items: center;
 }
-nav h3:last-child a {
-  padding-right: 0;
-}
-nav h3:first-child a {
-  padding-left: 0;
-}
-
-nav h3 {
-  margin: auto 0 0 0;
-}
-
-@media only screen and (max-width: 720px) {
-  nav h3 {
-    margin: 0;
-    padding: 0;
-    font-size: calc(calc(var(--base-fontsize) * var(--header-scale)) * 0.9);
-  }
-  nav {
-    padding: 0;
-    text-align: left;
-    margin-left: 1.5rem;
-    flex-direction: column;
-  }
-}
-
-nav a {
-  color: var(--text) !important;
-  display: inline-block;
-  padding: 0.1rem 1rem;
-  text-decoration: none;
-  transition: 0.4s;
-}
-
-@media only screen and (max-width: 720px) {
-  nav a {
-    margin: 0;
-    padding: 0;
-  }
-}
 
 nav a:hover {
   color: var(--accent) !important;

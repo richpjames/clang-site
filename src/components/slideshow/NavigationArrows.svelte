@@ -35,11 +35,6 @@
     position: relative;
   }
 
-  :global(.slide-image) {
-    margin-left: var(--page-margin);
-    width: 60%;
-  }
-
   :global(.arrow-wrapper span) {
     margin-top: 10%;
   }

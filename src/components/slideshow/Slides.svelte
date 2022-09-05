@@ -33,4 +33,9 @@
 </div>
 
 <style>
+  :global(.slide-image) {
+    margin-left: var(--page-margin);
+    width: 60%;
+    height: var(--slide-image-height);
+  }
 </style>

@@ -29,6 +29,7 @@
 
   --page-margin: 4rem;
   --medium-space: calc(var(--page-margin) * 2);
+  --small-space: calc(var(--page-margin) * 1);
 }
 
 html {
@@ -53,13 +54,20 @@ body {
   margin-right: var(--medium-space);
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 750px) {
   body {
     margin: 0;
     padding: 0;
     width: 100vw;
   }
 }
+@media only screen and (max-width: 1400px) {
+  body {
+    margin-left: var(--small-space);
+    margin-right: var(--small-space);
+  }
+}
+
 /* Make the header bg full width, but the content inline with body */
 header {
   background: var(--bg);

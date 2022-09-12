@@ -9,7 +9,7 @@
   export let page;
 </script>
 
-<div>
+<div class="slide-container">
   {#each slides as slide, index}
     {#if index === currentIndex && index === 0 && page === "home"}
       <svelte:component this={slides[currentIndex]} />
@@ -37,5 +37,18 @@
     margin-left: var(--page-margin);
     width: auto;
     height: var(--slide-image-size);
+  }
+
+  .slide-container {
+    margin-bottom: 0;
+  }
+  @media only screen and (max-width: 720px) {
+    .slide-container {
+      margin-bottom: 5rem;
+    }
+
+    :global(.slide-image) {
+      margin-left: 0;
+    }
   }
 </style>

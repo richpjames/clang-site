@@ -14,7 +14,7 @@ const directionsHtml = toHTML(directionsResponse[0].body);
 <BaseLayout>
   <HomePageSlides client:visible />
   <section class="slide">
-    <div class="iframe-parents">
+    <div class="iframe-wrapper">
       <iframe
         class="iframe"
         referrerpolicy="no-referrer-when-downgrade"
@@ -23,7 +23,7 @@ const directionsHtml = toHTML(directionsResponse[0].body);
       >
       </iframe>
     </div>
-    <div>
+    <div class="text-wrapper">
       <Fragment set:html={directionsHtml} />
     </div>
   </section>
@@ -48,12 +48,19 @@ const directionsHtml = toHTML(directionsResponse[0].body);
     margin-top: 0;
   }
 
-  .iframe-parent {
-    width: 100vw;
-    height: 50vh;
+  .iframe-wrapper {
+    width: var(--slide-image-size);
+    height: var(--slide-image-size);
+  }
+  .text-wrapper {
+    margin-left: 5rem;
   }
 
   @media only screen and (max-width: 720px) {
+    .iframe-wrapper {
+      width: 100%;
+      height: calc(var(--slide-image-size) * 0.75);
+    }
     section img {
       width: 100%;
     }

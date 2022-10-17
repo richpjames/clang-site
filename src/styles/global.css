@@ -59,13 +59,11 @@ body {
     margin: 0;
     padding: 0;
     width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media only screen and (max-width: 1400px) {
-  body {
-    margin-left: var(--small-space);
-    margin-right: var(--small-space);
-  }
 }
 
 /* Make the header bg full width, but the content inline with body */
@@ -407,7 +405,6 @@ main img,
 main video {
   max-width: 100%;
   height: auto;
-  border-radius: 5px;
 }
 
 figure {

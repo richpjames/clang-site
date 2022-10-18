@@ -63,8 +63,6 @@ body {
     margin-right: 0;
   }
 }
-@media only screen and (max-width: 1400px) {
-}
 
 /* Make the header bg full width, but the content inline with body */
 header {

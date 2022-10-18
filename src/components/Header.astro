@@ -8,7 +8,7 @@ export const navItems = [
 ];
 ---
 
-<header>
+<header class="header">
   <a href="/" class="logo">
     <img src="../../public/logo.png" alt="clang logo" />
   </a>
@@ -52,6 +52,9 @@ export const navItems = [
     transition: 0.4s;
   }
   @media only screen and (max-width: 720px) {
+    body main header {
+      padding: 1.5rem 0;
+    }
     nav a {
       margin: 0;
       padding: 0;
@@ -72,13 +75,16 @@ export const navItems = [
   }
 
   @media only screen and (max-width: 720px) {
-    header {
+    .header {
       margin-top: 0.5rem;
-      padding-top: 0;
+      padding-top: 1.5rem;
       width: 100vw;
     }
     .logo {
       width: 350px;
+    }
+    header nav a h3 {
+      padding-left: 0;
     }
   }
 
@@ -95,7 +101,7 @@ export const navItems = [
       flex-direction: column;
     }
     .logo {
-      width: 450px;
+      /* width: 450px; */
       align-self: center;
     }
     nav {

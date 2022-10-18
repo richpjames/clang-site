@@ -10,7 +10,7 @@ const copy = toHTML(mainSlide[0].body);
 
 <BaseLayout>
   <section class="slide">
-    <div>
+    <div class="text-container">
       <Fragment set:html={copy} />
     </div>
     <div class="form-container">
@@ -39,6 +39,9 @@ const copy = toHTML(mainSlide[0].body);
 </BaseLayout>
 
 <style>
+  .text-container {
+    margin-right: 10rem;
+  }
   .form-container {
     display: flex;
     flex-direction: column;
